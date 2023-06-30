@@ -1,0 +1,84 @@
+<template>
+  <div class="px-16 py-7">
+    <div class="bg-white px-8 py-6 rounded-lg grid grid-cols-2 gap-3">
+      <div class="border rounded-lg px-8 py-2">
+        <h3 class="text-xl">Cetak Baliho Politik</h3>
+        <div class="flex flex-col gap-2 mt-2">
+          <table class="">
+            <tr class="">
+              <th class="text-left">Tanggal Pemesanan</th>
+              <td class="">:</td>
+              <td class="text-right">xx-yy-zzzz</td>
+            </tr>
+            <tr class="">
+              <th class="text-left">Diproses oleh</th>
+              <td class="">:</td>
+              <td class="text-right">Percetakan OnlyCetak</td>
+            </tr>
+            <tr class="">
+              <th class="text-left">Proses</th>
+              <td class="">:</td>
+              <td class="text-right">sedang dicetak</td>
+            </tr>
+          </table>
+          <button class="w-fit text-lg text-white bg-orange-500 px-8 py-1 rounded-md font-semibold shadow-md h-fit">Hubungi</button>
+        </div>
+      </div>
+      <div class="border rounded-lg px-8 py-2">
+        <h3 class="text-xl">Cetak Baliho Politik</h3>
+        <div class="flex flex-col gap-2 mt-2">
+          <table class="">
+            <tr class="">
+              <th class="text-left">Tanggal Pemesanan</th>
+              <td class="">:</td>
+              <td class="text-right">xx-yy-zzzz</td>
+            </tr>
+            <tr class="">
+              <th class="text-left">Diproses oleh</th>
+              <td class="">:</td>
+              <td class="text-right">Percetakan OnlyCetak</td>
+            </tr>
+            <tr class="">
+              <th class="text-left">Proses</th>
+              <td class="">:</td>
+              <td class="text-right">sedang dicetak</td>
+            </tr>
+          </table>
+          <button class="w-fit text-lg text-white bg-orange-500 px-8 py-1 rounded-md font-semibold shadow-md h-fit">Hubungi</button>
+        </div>
+      </div>
+      <div class="border rounded-lg px-8 py-2">
+        <h3 class="text-xl">Cetak Baliho Politik</h3>
+        <div class="flex flex-col gap-2 mt-2">
+          <table class="">
+            <tr class="">
+              <th class="text-left">Tanggal Pemesanan</th>
+              <td class="">:</td>
+              <td class="text-right">xx-yy-zzzz</td>
+            </tr>
+            <tr class="">
+              <th class="text-left">Diproses oleh</th>
+              <td class="">:</td>
+              <td class="text-right">Percetakan OnlyCetak</td>
+            </tr>
+            <tr class="">
+              <th class="text-left">Proses</th>
+              <td class="">:</td>
+              <td class="text-right">sedang dicetak</td>
+            </tr>
+          </table>
+          <button class="w-fit text-lg text-white bg-orange-500 px-8 py-1 rounded-md font-semibold shadow-md h-fit">Hubungi</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script setup>
+definePageMeta({
+  layout: "dashboard",
+  pageTransition: false,
+  layoutTransition: false
+});
+</script>
