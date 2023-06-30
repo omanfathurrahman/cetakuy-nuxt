@@ -4,7 +4,7 @@
             :class="NavProfile ? 'top-20': 'top-10'" 
             class="-z-10 bg-red-400 w-fit absolute right-6 transition-all duration-500 ease-in-out"
             >
-            Ngentod
+            Tes
         </div>
         <div class="bg-neutral-50 flex justify-between h-[65px] items-center px-6 shadow shadow-slate-400">
             <h1 class="text-orange-500 font-semibold text-2xl">{{ activePage }}</h1>

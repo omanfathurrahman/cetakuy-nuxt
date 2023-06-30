@@ -1,5 +1,5 @@
 <template>
-  <div class="px-16 py-7">
+  <div class="pl-10 pr-16 py-8">
     <div class="h-full flex gap-7">
       <div 
         v-for="(menu, index) in menuPesanan"

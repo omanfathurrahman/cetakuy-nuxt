@@ -23,26 +23,67 @@
                     <h1 class="text-4xl font-semibold">Buat Akun</h1>
                 </div>
                 <div class="flex flex-col gap-2 items-center w-full text-neutral-500">
-                    <div class="w-full flex flex-col gap-1">
-                        <p>Email</p>
-                        <input type="email" name="" id="" class="outline-none bg-white px-4 py-1.5 rounded-lg border border-orange-500 w-full">
-                    </div>
-                    <div class="w-full flex flex-col gap-1">
-                        <p>No telp</p>
-                        <input type="text" name="" id="" class="outline-none bg-white px-4 py-1.5 rounded-lg border border-orange-500 w-full">
-                    </div>
-                    <div class="w-full flex flex-col gap-1">
-                        <p>Password</p>
-                        <input type="password" name="" id="" class="outline-none bg-white px-4 py-1.5 rounded-lg border border-orange-500 w-full">
-                    </div>
-                    <div class="w-full flex flex-col gap-1">
-                        <p>Konfirmasi password</p>
-                        <input type="password" name="" id="" class="outline-none bg-white px-4 py-1.5 rounded-lg border border-orange-500 w-full">
-                    </div>
-                    <div class="flex w-full">
-                        <p>Sudah punya akun? <NuxtLink to="/auth/masuk" class="text-orange-500">Masuk</NuxtLink></p>
-                    </div>
-                    <NuxtLink to="/auth/verifikasi" class="mt-2 bg-orange-500 shadow-md text-white font-medium px-6 py-1.5 rounded-lg border border-orange-500 w-full text-center">Daftar</NuxtLink>
+
+                    <form class="w-full">
+                        <div class="w-full flex flex-col gap-1">
+                            <p>Nama Depan</p>
+                            <input 
+                                v-model="namaDepan"
+                                type="text" 
+                                name="" 
+                                id="nama-depan" 
+                                class="outline-none bg-white px-4 py-1.5 rounded-lg border border-orange-500 w-full"
+                                required
+                            >
+                        </div>
+                        <div class="w-full flex flex-col gap-1">
+                            <p>Nama Belakang</p>
+                            <input 
+                                v-model="namaBelakang"
+                                type="text" 
+                                name="" 
+                                id="nama-belakang" 
+                                class="outline-none bg-white px-4 py-1.5 rounded-lg border border-orange-500 w-full"
+                                required
+                            >
+                        </div>
+                        <div class="w-full flex flex-col gap-1">
+                            <p>Email</p>
+                            <input 
+                                v-model="email"
+                                type="email" 
+                                name="" 
+                                id="email" 
+                                class="outline-none bg-white px-4 py-1.5 rounded-lg border border-orange-500 w-full"
+                                required
+                            >
+                        </div>
+                        <div class="w-full flex flex-col gap-1">
+                            <p>Password</p>
+                            <input 
+                                v-model="password"
+                                type="password" 
+                                name="" 
+                                id="password" 
+                                class="outline-none bg-white px-4 py-1.5 rounded-lg border border-orange-500 w-full"
+                                required
+                            >
+                        </div>
+                        <div class="w-full flex flex-col gap-1">
+                            <p>Konfirmasi password</p>
+                            <input 
+                                type="password" 
+                                name="" 
+                                id="val-password" 
+                                class="outline-none bg-white px-4 py-1.5 rounded-lg border border-orange-500 w-full"
+                                required
+                            >
+                        </div>
+                        <div class="flex w-full">
+                            <p>Sudah punya akun? <NuxtLink to="/auth/masuk" class="text-orange-500">Masuk</NuxtLink></p>
+                        </div>
+                        <input type="submit" @click="daftar" class="mt-2 bg-orange-500 shadow-md text-white font-medium px-6 py-1.5 rounded-lg border border-orange-500 w-full text-center" value="Daftar" />
+                    </form>
                 </div>
                 <div class="flex items-center gap-3 w-full">
                     <div class="w-full h-0.5 bg-orange-400"></div>
@@ -62,5 +103,34 @@
 </template>
 
 <script setup>
+const namaDepan = ref("")
+const namaBelakang = ref("")
+const email = ref("")
+const password = ref("")
+const valpassword = ref("")
 
+
+
+async function daftar() {
+    var data = {
+        'namaDepan': namaDepan.value,
+        'namaBelakang':namaBelakang.value,
+        'email':email.value,
+        'password':password.value,
+
+    }
+    console.log(data)
+    await fetch('http://127.0.0.1:5000/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    console.log(namaDepan)
+    console.log(namaBelakang)
+    if ( namaDepan.value != "" && namaBelakang.value != "" && email.value != "" && password.value != "" && valpassword.value != "") {
+        navigateTo('/auth/verifikasi')
+    }
+}
 </script>
