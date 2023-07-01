@@ -24,7 +24,19 @@
                 </div>
                 <div class="flex flex-col gap-2 items-center w-full text-neutral-500">
 
-                    <form class="w-full">
+                    <form class="w-full" @submit.prevent="daftar()">
+                        <p 
+                            class="text-red-600 text-center"
+                            v-if="emailSudahDipakai"
+                            >
+                            Email sudah digunakan
+                        </p>
+                        <p 
+                            class="text-red-600 text-center"
+                            v-if="passwordTidakSama"
+                            >
+                            Password dan validasi password tidak sama
+                        </p>
                         <div class="w-full flex flex-col gap-1">
                             <p>Nama Depan</p>
                             <input 
@@ -72,6 +84,7 @@
                         <div class="w-full flex flex-col gap-1">
                             <p>Konfirmasi password</p>
                             <input 
+                                v-model="valpassword"
                                 type="password" 
                                 name="" 
                                 id="val-password" 
@@ -82,7 +95,17 @@
                         <div class="flex w-full">
                             <p>Sudah punya akun? <NuxtLink to="/auth/masuk" class="text-orange-500">Masuk</NuxtLink></p>
                         </div>
-                        <input type="submit" @click="daftar" class="mt-2 bg-orange-500 shadow-md text-white font-medium px-6 py-1.5 rounded-lg border border-orange-500 w-full text-center" value="Daftar" />
+                        <!-- <button type="submit" class="mt-2 bg-orange-500 shadow-md text-white font-medium px-6 py-1.5 rounded-lg border border-orange-500 w-full text-center">Daftar</button> -->
+                        <button type="submit" class="mt-2 bg-orange-500 shadow-md text-white font-medium px-6 py-1.5 rounded-lg border border-orange-500 w-full text-center flex justify-center">
+                            <img v-if="sedangLoading" src="/animasi/loading.svg" alt="" class="h-7">
+                            <p v-else>Daftar</p>
+                        </button>
+                        <!-- <input type="submit" class="mt-2 bg-orange-500 shadow-md text-white font-medium px-6 py-1.5 rounded-lg border border-orange-500 w-full text-center" value="Daftar" /> -->
+                        <!-- <input 
+                            type="submit" 
+                            class="mt-2 bg-orange-500 shadow-md text-white font-medium px-6 py-1.5 rounded-lg border border-orange-500 w-full text-center" 
+                            value="Daftar" 
+                        /> -->
                     </form>
                 </div>
                 <div class="flex items-center gap-3 w-full">
@@ -103,34 +126,90 @@
 </template>
 
 <script setup>
-const namaDepan = ref("")
-const namaBelakang = ref("")
-const email = ref("")
-const password = ref("")
-const valpassword = ref("")
+const namaDepan = ref("fasdf")
+const namaBelakang = ref("gdgfd")
+const email = ref("fadsf@fads.fd")
+const password = ref("123")
+const valpassword = ref("123")
 
-
+const sedangLoading = ref(false)
+const passwordTidakSama = ref(false)
+const emailSudahDipakai = ref(false)
 
 async function daftar() {
-    var data = {
-        'namaDepan': namaDepan.value,
-        'namaBelakang':namaBelakang.value,
-        'email':email.value,
-        'password':password.value,
-
+    if (password.value != valpassword.value) {
+        passwordTidakSama.value = true
+        setTimeout(() => {
+          passwordTidakSama.value = false;
+        }, 6000)
+        return
     }
-    console.log(data)
-    await fetch('http://127.0.0.1:5000/users', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    console.log(namaDepan)
-    console.log(namaBelakang)
+
+    
     if ( namaDepan.value != "" && namaBelakang.value != "" && email.value != "" && password.value != "" && valpassword.value != "") {
-        navigateTo('/auth/verifikasi')
+        console.log(namaDepan.value, namaBelakang.value, email.value, password.value, valpassword.value)
+        sedangLoading.value = true
+        setTimeout(() => {
+                sedangLoading.value = false;
+                navigateTo("/auth/verifikasi")
+        }, 5000)
     }
 }
+
+
+
+// async function daftar() {
+//     if (password.value != valpassword.value) {
+//         passwordTidakSama.value = true
+//         setTimeout(() => {
+//           passwordTidakSama.value = false;
+//         }, 6000)
+//         return
+//     }
+
+//     const data2 = await fetch('http://127.0.0.1:5000/users')
+//     var data3 = await data2.json()
+
+//     // console.log( typeof data3.user)
+//     // console.log(data3.user)
+
+//     for (let i in data3.user) {
+//         console.log(data3.user[i].email)
+//         if (data3.user[i].email == email.value) {
+//             emailSudahDipakai.value = true
+//             setTimeout(() => {
+//                 emailSudahDipakai.value = false;
+//             }, 6000)
+//             return
+//         }
+//     }
+
+
+//     var data = {
+//         'namaDepan': namaDepan.value,
+//         'namaBelakang':namaBelakang.value,
+//         'email':email.value,
+//         'password':password.value,
+
+//     }
+//     const res = await fetch('http://127.0.0.1:5000/users', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     });
+
+//     const resData = await res.json()
+//     console.log(resData)
+//     if ( namaDepan.value != "" && namaBelakang.value != "" && email.value != "" && password.value != "" && valpassword.value != "") {
+//         console.log(namaDepan.value, namaBelakang.value, email.value, password.value, valpassword.value)
+//         sedangLoading.value = true
+//         setTimeout(() => {
+//                 sedangLoading.value = false;
+//                 navigateTo("/auth/verifikasi")
+//         }, 5000)
+//     }
+// }
+
 </script>

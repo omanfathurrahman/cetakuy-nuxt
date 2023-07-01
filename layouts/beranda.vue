@@ -9,16 +9,16 @@
         <!-- <div class="h-20 w-full bg-orange-400 absolute top-0 z-10"></div> -->
         <div 
             :class="lokasiLogo" 
-            class="flex items-end absolute transition-all duration-500 ease-in-out"
+            class="flex items-end absolute transition-all duration-700 ease-in-out"
             >
             <img 
                 src="/logo/cetakuy.png" 
                 alt="" 
                 :class="ukuranLogoDanText[0]"
-                class="transition-all duration-500 ease-in-out">
+                class="transition-all duration-700 ease-in-out">
             <h1 
                 :class="ukuranLogoDanText[1]" 
-                class="font-bold text-white transition-all duration-500 ease-in-out"
+                class="font-bold text-white transition-all duration-700 ease-in-out"
                 >
                 Cetakuy
             </h1>

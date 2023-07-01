@@ -1,10 +1,12 @@
 <template>
     <div class="relative z-10">
         <div
-            :class="NavProfile ? 'top-20': 'top-10'" 
-            class="-z-10 bg-red-400 w-fit absolute right-6 transition-all duration-500 ease-in-out"
+            :class="NavProfile ? 'top-20': '-top-16'" 
+            class="-z-10 bg-white shadow-xl w-fit absolute right-6 transition-all duration-500 ease-in-out flex flex-col gap-1.5 items-center px-4 py-3 rounded-md"
             >
-            Tes
+            <NuxtLink to="/dashboard/profile" class="border-b w-full text-center border-orange-500 pb-0.5">Profil</NuxtLink>
+            <NuxtLink to="/dashboard/profile">Saran dan masukan</NuxtLink>
+            <NuxtLink to="/dashboard/profile">Keluar dari akun</NuxtLink>
         </div>
         <div class="bg-neutral-50 flex justify-between h-[65px] items-center px-6 shadow shadow-slate-400">
             <h1 class="text-orange-500 font-semibold text-2xl">{{ activePage }}</h1>
@@ -20,7 +22,7 @@
                 </div>
                 <div
                     @click="NavProfile = !NavProfile" 
-                    class="flex items-center gap-2 px-3 py-1 border border-slate-300 rounded-lg w-36 justify-between">
+                    class="flex items-center gap-2 px-3 py-1 border border-slate-300 rounded-lg w-36 justify-between cursor-pointer">
                     <div class="flex gap-2">
                         <div class="bg-slate-500 w-7 h-7 rounded-full" style="background-image: ;"></div>
                         <h3 class="text-neutral-800 text-[16px] font-normal">Lana</h3>
