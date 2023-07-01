@@ -126,9 +126,9 @@
 </template>
 
 <script setup>
-const namaDepan = ref("fasdf")
-const namaBelakang = ref("gdgfd")
-const email = ref("fadsf@fads.fd")
+const namaDepan = ref("first name")
+const namaBelakang = ref("last name")
+const email = ref("example@email.com")
 const password = ref("123")
 const valpassword = ref("123")
 
