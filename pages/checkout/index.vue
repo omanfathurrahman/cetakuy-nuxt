@@ -82,6 +82,7 @@
             </div>
             <div class="flex justify-between px-16 py-6 w-full">
                 <button 
+                    @click="$router.back();"
                     class="w-fit text-lg text-slate-500 bg-white border px-8 py-1 rounded-md font-semibold shadow-md"
                     >
                     Kembali
