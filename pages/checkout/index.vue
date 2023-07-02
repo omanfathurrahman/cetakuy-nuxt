@@ -3,6 +3,49 @@
         style="background-image: url('/bg/bg4.png');"
         class="h-screen w-screen flex items-center justify-center"
         >
+
+        <div
+            v-if="pembayaran" 
+            class="absolute w-screen h-screen bg-slate-900/30 z-10 flex items-center justify-center">
+            <div class="bg-stone-200 rounded-lg overflow-hidden w-1/3 pb-3 shadow-lg">
+                <div class="flex justify-between bg-white px-8 py-3">
+                    <button 
+                        @click="pembayaran = false"
+                        class="bg-stone-100 px-4 py-0.5 rounded-lg"
+                        >
+                        Back
+                    </button>
+                    <p>Pilih pembayaran</p>
+                </div>
+                <div class="flex flex-col gap-1 px-8 py-3">
+                    <div class="flex bg-white px-3 py-1 rounded-md  ">
+                        <div class=""></div>
+                        <div class="flex flex-col">
+                            <h4>Credit/Debit Card</h4>
+                            <p>Pay with Visa, MasterCard, or JCB</p>
+                        </div>
+                        <div class=""></div>
+                    </div>
+                    <div class="flex bg-white px-3 py-1 rounded-md  ">
+                        <div class=""></div>
+                        <div class="flex flex-col">
+                            <h4>Credit/Debit Card</h4>
+                            <p>Pay with Visa, MasterCard, or JCB</p>
+                        </div>
+                        <div class=""></div>
+                    </div>
+                    <div class="flex bg-white px-3 py-1 rounded-md  ">
+                        <div class=""></div>
+                        <div class="flex flex-col">
+                            <h4>Credit/Debit Card</h4>
+                            <p>Pay with Visa, MasterCard, or JCB</p>
+                        </div>
+                        <div class=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="bg-white rounded-xl flex flex-col items-center w-2/3">
             <div class="">
                 <img 
@@ -38,8 +81,18 @@
                 </div>
             </div>
             <div class="flex justify-between px-16 py-6 w-full">
-                <button class="w-fit text-lg text-slate-500 bg-white border px-8 py-1 rounded-md font-semibold shadow-md">Kembali</button>
-                <button class="w-fit text-lg text-white bg-orange-500 px-8 py-1 rounded-md font-semibold shadow-md">Confirm</button>
+                <button 
+                    @click="$router.back();"
+                    class="w-fit text-lg text-slate-500 bg-white border px-8 py-1 rounded-md font-semibold shadow-md"
+                    >
+                    Kembali
+                </button>
+                <button 
+                    @click="pembayaran = true"
+                    class="w-fit text-lg text-white bg-orange-500 px-8 py-1 rounded-md font-semibold shadow-md"
+                    >
+                    Confirm
+                </button>
             </div>
         </div>
     </div>
@@ -54,4 +107,6 @@ definePageMeta({
 
 const dataPembeli = ['Nama', 'Email', 'Penerima', 'No Whatsapp Penerima']
 const dataHeadBarangDibeli = ['Item', 'Harga Satuan', 'Jumlah', 'Subtotal']
+
+const pembayaran = ref(false)
 </script>
