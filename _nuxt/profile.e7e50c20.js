@@ -1,0 +1,1 @@
+import{_ as t}from"./TopBar.c5ee7b13.js";import{_ as r,o as a,c as s,b as c,x as n}from"./entry.9a022a53.js";import"./nuxt-link.94c0baac.js";const _={},p={class:"h-screen",style:{"background-image":"url('/bg/bg2.png')"}};function l(e,d){const o=t;return a(),s("div",p,[c(o,{"active-page":"CetaKuy"}),n(e.$slots,"default")])}const u=r(_,[["render",l]]);export{u as default};
