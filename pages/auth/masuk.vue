@@ -16,7 +16,7 @@
                     <div class="flex justify-between w-full">
                         <div class="flex gap-2">
                             <p>Belum punya akun?</p>
-                            <NuxtLink to="/auth/daftar" class="text-orange-500">Daftar</NuxtLink>
+                            <NuxtLink to="/daftar" class="text-orange-500">Daftar</NuxtLink>
                         </div>
                         <a href="#">Lupa password?</a>
                     </div>
