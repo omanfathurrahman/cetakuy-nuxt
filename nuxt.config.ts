@@ -14,7 +14,6 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: '/cetakuy-nuxt/',
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
