@@ -19,13 +19,4 @@ export default defineNuxtConfig({
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
 
-  nitro: {
-    prerender: {
-      crawlLinks: true
-    },
-    preset: 'node-server'
-  },
-  experimental: {
-    payloadExtraction: true
-  }
 })
